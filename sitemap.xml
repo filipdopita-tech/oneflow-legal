@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Landing pages (4 languages) -->
+  <url>
+    <loc>https://legal.oneflow.cz/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legal.oneflow.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legal.oneflow.cz/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://legal.oneflow.cz/sk/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://legal.oneflow.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legal.oneflow.cz/"/>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/sk/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/de/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy Policy (4 languages) -->
+  <url>
+    <loc>https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://legal.oneflow.cz/sk/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://legal.oneflow.cz/de/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/"/>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/sk/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/de/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- User Data Deletion Instructions (4 languages) -->
+  <url>
+    <loc>https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://legal.oneflow.cz/sk/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://legal.oneflow.cz/de/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/"/>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/sk/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/de/meta-platforms/oneflow-publisher-app-1239370548302204/user-data-deletion-instructions/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Terms of Service (4 languages) -->
+  <url>
+    <loc>https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://legal.oneflow.cz/sk/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://legal.oneflow.cz/de/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legal.oneflow.cz/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/"/>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/sk/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legal.oneflow.cz/de/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- OneFlowApp Meta Ads (App ID 1587515299033044) -->
+  <url>
+    <loc>https://legal.oneflow.cz/meta-platforms/oneflowapp-app-1587515299033044/user-data-deletion-instructions/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legal.oneflow.cz/meta-platforms/oneflowapp-app-1587515299033044/user-data-deletion-instructions/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legal.oneflow.cz/meta-platforms/oneflowapp-app-1587515299033044/user-data-deletion-instructions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legal.oneflow.cz/meta-platforms/oneflowapp-app-1587515299033044/user-data-deletion-instructions/"/>
+  </url>
+
+  <!-- API endpoints (deletion-status only; callback is POST-only) -->
+  <url>
+    <loc>https://legal.oneflow.cz/api/deletion-status</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

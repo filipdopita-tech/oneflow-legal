@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "trailingSlash": true,
+  "cleanUrls": true,
+  "functions": {
+    "api/data-deletion-callback.js": {
+      "maxDuration": 10
+    },
+    "api/deletion-status.js": {
+      "maxDuration": 10
+    }
+  },
+  "redirects": [
+    {
+      "source": "/instagram-privacy.html",
+      "destination": "/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-privacy/",
+      "destination": "/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-terms.html",
+      "destination": "/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-terms/",
+      "destination": "/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "/meta-platforms/oneflow-publisher-app-1239370548302204/terms-of-service-end-user-agreement/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+        { "key": "Cross-Origin-Resource-Policy", "value": "same-site" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/_assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

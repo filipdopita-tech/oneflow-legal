@@ -1,0 +1,14 @@
+# Public legal compliance pages for Meta Platform applications operated by
+# OneFlow s.r.o. These pages are required by the Meta Platform Terms to be
+# publicly available, easily accessible (including by Meta's crawlers),
+# and non-geoblocked. Full crawl access is therefore granted to all agents.
+#
+# Pages are not actively promoted via internal linking, sitemaps, or
+# external backlinks; their long, descriptive URL paths effectively
+# limit accidental discovery while satisfying public-availability
+# requirements under GDPR and Meta Platform Terms.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://legal.oneflow.cz/sitemap.xml

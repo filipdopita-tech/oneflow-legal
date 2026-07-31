@@ -1,0 +1,20 @@
+{
+  "name": "oneflow-legal",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "normalize": "node scripts/normalize-pages.cjs",
+    "verify": "node scripts/verify.cjs",
+    "test:api": "node --test tests/*.test.cjs",
+    "build:pdf": "node scripts/build-legal-pdfs.cjs",
+    "verify:pdf": "node scripts/verify-pdfs.cjs",
+    "qa:browser": "node scripts/browser-qa.cjs",
+    "qa:lighthouse": "node scripts/lighthouse-qa.cjs",
+    "qa:all": "npm run normalize && npm run build:pdf && npm run verify && npm run verify:pdf && npm run test:api && npm run qa:browser && npm run qa:lighthouse"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.1",
+    "lighthouse": "13.4.1"
+  }
+}
