@@ -39,8 +39,9 @@ npx vercel@55.0.0 deploy --yes --scope oneflowcast          # preview (za Deploy
 npx vercel@55.0.0 deploy --prod --yes --scope oneflowcast   # produkce = https://legal.oneflow.cz
 ```
 
-Po produkčním deployi smoke test proti živé doméně: `/` 200, `/de/privacy/` 200,
-`/instagram-privacy.html` 308 na meta-platforms cestu, callback GET 405 a POST
+Po produkčním deployi smoke test proti živé doméně: `/` 200,
+`/de/meta-platforms/oneflow-publisher-app-1239370548302204/data-controller-privacy-policy/`
+200 (repo nemá route `/de/privacy/`), `/instagram-privacy.html` 308 na meta-platforms cestu, callback GET 405 a POST
 s podvrženým podpisem 503 `service_unavailable` (dokud chybí secret) nebo 400
 `invalid_signature` (se secretem). Env proměnné se zapékají při buildu, změna
 přes `vercel env` platí až po dalším deployi. Rollback:
