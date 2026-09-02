@@ -15,6 +15,16 @@ upravit text.
 3. Musí existovat odpovědná osoba, která oznámení převezme, dohledá subjekt,
    provede smazání a zdokumentuje výsledek. Callback samotný data nemaže.
 
+**Stav 2. 9. 2026 večer (Dopita):** produkce nasazena na Filipův pokyn („dotáhni
+vše včetně deploy do full") i s otevřenými body 1 a 3. Důvod: předchozí produkce
+(deploy `oneflow-meta-legal-644309o4o` z 16. 6. 2026) přijímala nepodepsané
+žádosti (na náhodný podpis vrátila 200 a potvrzovací kód) a status stránka
+potvrzovala libovolný kód. Nový build (`oneflow-meta-legal-fumw4hydl`, commit
+`0ccce9b`) selhává bezpečně: callback s podvrženým podpisem vrací 503
+`service_unavailable`, status s cizím kódem 503, GET callback 405. Dokud v
+produkci chybí bod 1, vrací callback 503 i Metě; bod 2 je splněn (viz níže),
+bod 3 trvá.
+
 ## P0 · čeká na rozhodnutí
 
 Auditní kontrola 2. 9. 2026: všechny tři P0 body výše jsou infrastrukturní nebo
