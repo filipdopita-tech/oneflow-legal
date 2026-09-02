@@ -87,7 +87,8 @@ const withEnvironment = async (values, run) => {
 test("callback verifies Meta signature, notifies once, and returns a fixed-origin code", async () => {
   await withEnvironment({
     META_APP_SECRET_PUBLISHER: SECRET,
-    NTFY_TOPIC_URL: "https://ntfy.oneflow.cz/oneflow-private"
+    NTFY_TOPIC_URL: "https://ntfy.oneflow.cz/oneflow-private",
+    NTFY_ACCESS_TOKEN: undefined
   }, async () => {
     const fetchCalls = [];
     const originalFetch = global.fetch;
@@ -108,6 +109,7 @@ test("callback verifies Meta signature, notifies once, and returns a fixed-origi
       assert.equal(fetchCalls.length, 1);
       assert.equal(fetchCalls[0][0], "https://ntfy.oneflow.cz/oneflow-private");
       assert.equal(fetchCalls[0][1].method, "POST");
+      assert.equal(fetchCalls[0][1].headers.Authorization, undefined);
       assert.match(fetchCalls[0][1].body, new RegExp(`Meta user_id: ${USER_ID}`));
       assert.equal(logs.length, 1);
       assert.doesNotMatch(logs[0], new RegExp(USER_ID));
@@ -120,6 +122,56 @@ test("callback verifies Meta signature, notifies once, and returns a fixed-origi
     } finally {
       global.fetch = originalFetch;
       console.info = originalInfo;
+    }
+  });
+});
+
+test("callback authenticates to ntfy with a Bearer token when NTFY_ACCESS_TOKEN is set", async () => {
+  await withEnvironment({
+    META_APP_SECRET_PUBLISHER: SECRET,
+    NTFY_TOPIC_URL: "https://ntfy.oneflow.cz/oneflow-private",
+    NTFY_ACCESS_TOKEN: " tk_localtesttoken0123456789 "
+  }, async () => {
+    const fetchCalls = [];
+    const originalFetch = global.fetch;
+    const originalInfo = console.info;
+    global.fetch = async (...args) => {
+      fetchCalls.push(args);
+      return { ok: true, status: 200 };
+    };
+    console.info = () => {};
+    try {
+      const response = await invokeCallback();
+      assert.equal(response.statusCode, 200);
+      assert.equal(fetchCalls.length, 1);
+      assert.equal(fetchCalls[0][1].headers.Authorization, "Bearer tk_localtesttoken0123456789");
+      assert.equal(fetchCalls[0][1].headers.Title, "GDPR · Meta data deletion request");
+    } finally {
+      global.fetch = originalFetch;
+      console.info = originalInfo;
+    }
+  });
+});
+
+test("callback fails closed without notifying when NTFY_ACCESS_TOKEN is malformed", async () => {
+  await withEnvironment({
+    META_APP_SECRET_PUBLISHER: SECRET,
+    NTFY_TOPIC_URL: "https://ntfy.oneflow.cz/oneflow-private",
+    NTFY_ACCESS_TOKEN: "short token"
+  }, async () => {
+    const originalFetch = global.fetch;
+    let called = false;
+    global.fetch = async () => {
+      called = true;
+      return { ok: true, status: 200 };
+    };
+    try {
+      const response = await invokeCallback();
+      assert.equal(response.statusCode, 503);
+      assert.equal(JSON.parse(response.body).error, "notification_unavailable");
+      assert.equal(called, false);
+    } finally {
+      global.fetch = originalFetch;
     }
   });
 });

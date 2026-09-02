@@ -63,6 +63,17 @@ druhou env proměnnou s ntfy access tokenem a hlavičku
 GDPR žádosti s osobními údaji subjektu (Meta user_id, subject reference),
 doporučuji rovnou (b).
 
+**Stav kódu 2. 9. 2026 odpoledne:** varianta (b) je implementovaná. Funkce
+`notifyNtfy()` čte volitelnou proměnnou `NTFY_ACCESS_TOKEN` a posílá ji jako
+`Authorization: Bearer`; bez proměnné se chová jako dřív, nastavená a vadná
+hodnota (mezery, méně než 16 znaků) znamená 503 bez odeslání, aby žádost
+nikdy neodešla do topicu bez autorizace jen kvůli překlepu v env. Kryto testy
+`npm run test:api`. **Zbývá rozhodnutí a dvě ruční akce Filipa:** na
+`ntfy.oneflow.cz` založit uživatele s právem publikovat do privátního topicu
+a vydat mu access token (`ntfy user add`, `ntfy access <user> <topic> wo`,
+`ntfy token add <user>`), pak v produkčním Vercelu nastavit `NTFY_TOPIC_URL`
+i `NTFY_ACCESS_TOKEN`.
+
 ### 3. Odpovědná osoba za vyřízení oznámení
 
 **Otázka:** kdo konkrétně přebírá ntfy oznámení, dohledává subjekt v datech

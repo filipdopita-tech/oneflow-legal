@@ -58,6 +58,8 @@ const safeSubjectReference = (userId, appSecret) => (
   crypto.createHmac("sha256", appSecret).update(String(userId)).digest("hex").slice(0, 16)
 );
 
+const NTFY_TOKEN_PATTERN = /^[A-Za-z0-9_.-]{16,128}$/;
+
 const getNtfyUrl = () => {
   if (!process.env.NTFY_TOPIC_URL) return null;
   try {
@@ -68,17 +70,31 @@ const getNtfyUrl = () => {
   }
 };
 
+// ntfy access token (LEGAL_REVIEW, P0 c. 2, varianta b). Bez promenne se chova jako driv;
+// nastavena, ale vadna hodnota znamena "nekonfigurovano" (fail closed), aby GDPR zadost
+// nikdy nesla do topicu bez autorizace jen kvuli preklepu v env.
+const getNtfyAuth = () => {
+  const raw = process.env.NTFY_ACCESS_TOKEN;
+  if (raw === undefined || raw === "") return { header: null, valid: true };
+  const token = raw.trim();
+  if (!NTFY_TOKEN_PATTERN.test(token)) return { header: null, valid: false };
+  return { header: `Bearer ${token}`, valid: true };
+};
+
 const notifyNtfy = async (message) => {
   const ntfyUrl = getNtfyUrl();
-  if (!ntfyUrl) return { sent: false, reason: "notification_unavailable" };
+  const auth = getNtfyAuth();
+  if (!ntfyUrl || !auth.valid) return { sent: false, reason: "notification_unavailable" };
+  const headers = {
+    Title: "GDPR · Meta data deletion request",
+    Priority: "high",
+    Tags: "gdpr,meta,deletion"
+  };
+  if (auth.header) headers.Authorization = auth.header;
   try {
     const response = await fetch(ntfyUrl, {
       method: "POST",
-      headers: {
-        Title: "GDPR · Meta data deletion request",
-        Priority: "high",
-        Tags: "gdpr,meta,deletion"
-      },
+      headers,
       body: message,
       signal: AbortSignal.timeout(4000)
     });

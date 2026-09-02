@@ -9,6 +9,7 @@ Kanonický zdroj veřejných Meta Platform právních a data-deletion povrchů n
 - Scope: `oneflowcast`
 - Project ID: `prj_gceWWl6yTIeJeetVAoVCXRbP2i3s`
 - Povinné env keys: `META_APP_SECRET_PUBLISHER`, `NTFY_TOPIC_URL`
+- Doporučený env key: `NTFY_ACCESS_TOKEN` (ntfy access token, odchází jako `Authorization: Bearer`; bez něj stojí soukromí topicu jen na neuhodnutelném názvu, vadná hodnota = 503 bez odeslání)
 
 Hodnoty secretů se nikdy neukládají do repozitáře ani do reportů.
 
