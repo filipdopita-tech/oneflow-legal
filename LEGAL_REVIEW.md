@@ -68,11 +68,19 @@ doporučuji rovnou (b).
 `Authorization: Bearer`; bez proměnné se chová jako dřív, nastavená a vadná
 hodnota (mezery, méně než 16 znaků) znamená 503 bez odeslání, aby žádost
 nikdy neodešla do topicu bez autorizace jen kvůli překlepu v env. Kryto testy
-`npm run test:api`. **Zbývá rozhodnutí a dvě ruční akce Filipa:** na
-`ntfy.oneflow.cz` založit uživatele s právem publikovat do privátního topicu
-a vydat mu access token (`ntfy user add`, `ntfy access <user> <topic> wo`,
-`ntfy token add <user>`), pak v produkčním Vercelu nastavit `NTFY_TOPIC_URL`
-i `NTFY_ACCESS_TOKEN`.
+`npm run test:api`.
+
+**Provedeno 2. 9. 2026 (Dopita, root na vps-claude):** na `ntfy.oneflow.cz`
+založen uživatel `legal-callback` (role user) s právem `write-only` výhradně na
+nový soukromý topic `oneflow-legal-gdpr` (výchozí přístup serveru je deny-all,
+topic čtou jen admin účty `filip` a `oneflow`; topic `Filip` se záměrně nepoužil,
+má anonymní zápis a čte ho i účet `lukas`). Vydán access token s labelem
+`vercel-legal` a rourou uložen do produkčního Vercelu jako `NTFY_ACCESS_TOKEN`
+(sensitive, hodnota nikde nevypsána ani nelogována); `NTFY_TOPIC_URL` =
+`https://ntfy.oneflow.cz/oneflow-legal-gdpr`. Ověřeno: publish s tokenem 200,
+bez tokenu 403. Bod 2 je tím splněn. Zbývá jediný ruční krok Filipa: přihlásit
+topic `oneflow-legal-gdpr` v ntfy aplikaci pod účtem `filip` (souvisí s bodem 3);
+nepřečtené zprávy drží server jen po dobu cache (výchozích 12 h).
 
 ### 3. Odpovědná osoba za vyřízení oznámení
 

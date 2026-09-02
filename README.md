@@ -28,16 +28,23 @@ dokument. SEO score se nepoužívá jako gate, protože služba má záměrný
 
 ## Deploy
 
+Projekt nemá git integraci s Vercelem. Push do `main` nic nenasadí; nasazuje se
+jen ručně přes CLI z linknutého pracovního stromu (`.vercel/` je gitignored, při
+prvním použití `npx vercel@55.0.0 link --scope oneflowcast`). Přesně proto běžela
+produkce od 16. 6. do 2. 9. 2026 na 78 dní starém buildu, i když repo mělo
+přestavbu hotovou.
+
 ```bash
-npx vercel@55.0.0 --scope oneflowcast
+npx vercel@55.0.0 deploy --yes --scope oneflowcast          # preview (za Deployment Protection, smoke test tam neprojde)
+npx vercel@55.0.0 deploy --prod --yes --scope oneflowcast   # produkce = https://legal.oneflow.cz
 ```
 
-Preview musí projít stejným browser a route gate. Produkce se promuje až poté:
+Po produkčním deployi smoke test proti živé doméně: `/` 200, `/de/privacy/` 200,
+`/instagram-privacy.html` 308 na meta-platforms cestu, callback GET 405 a POST
+s podvrženým podpisem 503 `service_unavailable` (dokud chybí secret) nebo 400
+`invalid_signature` (se secretem). Env proměnné se zapékají při buildu, změna
+přes `vercel env` platí až po dalším deployi. Rollback:
+`npx vercel@55.0.0 rollback <předchozí production deployment> --scope oneflowcast`.
 
-```bash
-npx vercel@55.0.0 promote <preview-url> --scope oneflowcast
-```
-
-Produkční promoci blokuje neuzavřený `LEGAL_REVIEW.md` a chybějící
-`META_APP_SECRET_PUBLISHER`. Rollback používá předchozí production deployment
-ID přes Vercel rollback.
+Otevřené body před ostrým provozem callbacku eviduje `LEGAL_REVIEW.md` (P0):
+`META_APP_SECRET_PUBLISHER` v produkci a jmenovaná odpovědná osoba.
