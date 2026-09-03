@@ -60,10 +60,10 @@ privacy-regulation.eu/cs/32.htm 2. 9. 2026 · přímý fetch EUR-Lex
 200 dne 2. 9. 2026) reálný privátní topic a je jeho URL nastavená v produkčním
 Vercelu?
 
-**Skrytý technický detail:** funkce `notifyNtfy()` v
-`api/data-deletion-callback.js` neposílá žádnou `Authorization` hlavičku.
-„Soukromost" topicu dnes stojí jen na neuhodnutelnosti jeho názvu v URL, ne na
-autentizaci vůči ntfy serveru.
+**Skrytý technický detail · vyřešeno 3. 9. 2026:** funkce `notifyNtfy()` v
+`api/data-deletion-callback.js` čte `NTFY_ACCESS_TOKEN` (řádek 77) a hlavičku
+`Authorization` posílá (řádek 93). Původní znění tohoto odstavce tvrdilo opak
+a bylo zastaralé; „soukromost" topicu už nestojí jen na neuhodnutelnosti URL.
 
 **Doporučená varianta:** (a) rychlé řešení pro spuštění · dlouhý, náhodně
 generovaný název topicu, žádná změna kódu, `[MED]` riziko (kdokoli s URL může
